@@ -2388,10 +2388,21 @@ section {
         border-right-width: 120px !important;
         border-top-width: 85px !important;
     }
+    .envelope-body {
+        border-left-width: 120px !important;
+        border-right-width: 120px !important;
+        border-bottom-width: 82.5px !important;
+        border-top-width: 82.5px !important;
+    }
     .letter {
         width: 220px !important;
         height: 145px !important;
+        left: 10px !important;
         padding: 12px !important;
+    }
+    .envelope.open .letter {
+        transform: translateY(-110px) !important;
+        height: 220px !important;
     }
     .letter-text {
         font-size: 0.9rem !important;
@@ -2459,15 +2470,32 @@ section {
     }
 
     /* 7. Why You Are Special Reasons Slide */
-    .reasons-grid {
+    .cards-container {
         grid-template-columns: 1fr !important; /* Stack 1-column vertically */
-        gap: 12px !important;
+        gap: 15px !important;
+        padding: 10px !important;
     }
     .reason-card {
-        height: 90px !important;
+        height: 180px !important;
     }
-    .reason-front p, .reason-back p {
-        font-size: 0.85rem !important;
+    .card-front, .card-back {
+        padding: 15px !important;
+        border-radius: 12px !important;
+    }
+    .card-front h3 {
+        font-size: 1.1rem !important;
+        margin-top: 5px !important;
+        margin-bottom: 5px !important;
+    }
+    .card-front i.icon-large {
+        font-size: 1.8rem !important;
+    }
+    .card-front .click-reveal {
+        font-size: 0.75rem !important;
+    }
+    .card-back p {
+        font-size: 0.82rem !important;
+        line-height: 1.4 !important;
     }
 
     /* 8. The Proposal Yes/No Slide */
