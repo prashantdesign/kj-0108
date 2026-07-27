@@ -15,6 +15,8 @@
     --font-heading: 'Rozha One', serif;
     --font-body: 'Poppins', sans-serif;
     --font-cursive: 'Great Vibes', cursive;
+    --font-handwritten: 'Caveat', cursive;
+    --font-cute: 'Fredoka', sans-serif;
 }
 
 * {
@@ -666,27 +668,11 @@ section {
 }
 
 .polaroid-frame {
-    background: var(--white);
-    padding: 15px 15px 25px 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    border: 1px solid rgba(0,0,0,0.05);
-    border-radius: 4px;
-    max-width: 280px;
     transition: all 0.4s ease;
 }
 
-/* Tilting polaroids for retro look */
-.polaroid-frame:nth-child(odd) {
-    transform: rotate(-3deg);
-}
-
-.polaroid-frame:nth-child(even) {
-    transform: rotate(3deg);
-}
-
 .polaroid-frame:hover {
-    transform: rotate(0deg) scale(1.05) translateY(-10px);
-    box-shadow: 0 20px 35px rgba(255, 77, 109, 0.2);
+    transform: scale(1.03) translateY(-5px);
     z-index: 5;
 }
 
@@ -710,11 +696,12 @@ section {
 }
 
 .polaroid-caption {
-    font-family: var(--font-cursive);
-    font-size: 1.8rem;
+    font-family: var(--font-handwritten);
+    font-size: 2.2rem;
+    font-weight: 700;
     text-align: center;
     color: var(--primary);
-    margin-top: 15px;
+    margin-top: 12px;
 }
 
 /* Love Calculator Section */
@@ -1589,10 +1576,12 @@ section {
 }
 
 .quiz-feedback p {
-    font-family: var(--font-cursive);
-    font-size: 1.7rem;
+    font-family: var(--font-handwritten);
+    font-size: 2.1rem;
+    font-weight: 700;
     color: var(--primary);
     margin-bottom: 15px;
+    line-height: 1.3;
 }
 
 .quiz-finished-box {
@@ -2169,6 +2158,7 @@ section {
 /* --- Double-sided Flipping Polaroid Cards --- */
 .polaroid-frame {
     background: transparent;
+    -webkit-perspective: 1000px;
     perspective: 1000px;
     width: 290px;
     height: 360px;
@@ -2182,10 +2172,12 @@ section {
     height: 100%;
     text-align: center;
     transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
 }
 
 .polaroid-frame.flipped .polaroid-inner {
+    -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
 }
 
@@ -2202,6 +2194,8 @@ section {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
 }
 
 .polaroid-front {
@@ -2211,6 +2205,7 @@ section {
 .polaroid-back {
     background: linear-gradient(135deg, #ffeef1 0%, #fff0f3 100%);
     color: var(--text-color);
+    -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
     justify-content: center;
     align-items: center;

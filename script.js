@@ -1095,14 +1095,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Jump to top instantly so next screen views cleanly
                 window.scrollTo({ top: 0, behavior: "instant" });
 
-                // If navigating to Gallery polaroids, reveal its next button after 1.5s delay
-                if (nextSlideId === "gallery-section") {
-                    setTimeout(() => {
-                        const navToScratch = document.getElementById("nav-to-scratch");
-                        if (navToScratch) navToScratch.classList.remove("hidden");
-                    }, 1500);
-                }
-
                 // Re-initialize scratch cards once their section goes active/visible
                 if (nextSlideId === "scratch-section" && window.initAllScratchCardsGlobal) {
                     window.initAllScratchCardsGlobal();
@@ -1143,13 +1135,29 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // -----------------------------------------
-    // 16. Polaroid Flip Card Logic
+    // 16. Polaroid Flip Card Logic (Enforces strict gallery review lock)
     // -----------------------------------------
     const polaroidFrames = document.querySelectorAll(".polaroid-frame");
-    polaroidFrames.forEach(frame => {
+    const flippedPolaroids = new Set();
+
+    polaroidFrames.forEach((frame, idx) => {
         frame.addEventListener("click", () => {
             playSound("flip");
             frame.classList.toggle("flipped");
+            
+            if (frame.classList.contains("flipped")) {
+                flippedPolaroids.add(idx);
+                // Once all 3 cards have been flipped at least once, unlock surprises next button
+                if (flippedPolaroids.size === polaroidFrames.length) {
+                    const navToScratch = document.getElementById("nav-to-scratch");
+                    if (navToScratch) {
+                        navToScratch.classList.remove("hidden");
+                        setTimeout(() => {
+                            navToScratch.scrollIntoView({ behavior: "smooth" });
+                        }, 300);
+                    }
+                }
+            }
         });
     });
 
