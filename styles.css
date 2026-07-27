@@ -2564,6 +2564,37 @@ section {
         width: 55px !important;
         height: 55px !important;
     }
+    
+    /* Love Calculator Overrides */
+    .names-row {
+        gap: 15px !important;
+        margin-bottom: 20px !important;
+    }
+    .name-tag {
+        font-size: 1.2rem !important;
+    }
+    .names-row i {
+        font-size: 1.7rem !important;
+    }
+    .love-percentage {
+        font-size: 2rem !important;
+        margin-bottom: 15px !important;
+    }
+    
+    /* Countdown Timer Overrides */
+    #countdown-timer {
+        gap: 8px !important;
+    }
+    .time-block {
+        min-width: 60px !important;
+        padding: 6px 8px !important;
+    }
+    .time-block span {
+        font-size: 1.3rem !important;
+    }
+    .time-block label {
+        font-size: 0.6rem !important;
+    }
 }
 
 
