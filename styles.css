@@ -2243,98 +2243,327 @@ section {
     filter: drop-shadow(0 4px 8px rgba(0,0,0,0.05));
 }
 
-/* --- Cute Pics Carousel Slide --- */
+/* --- Cute Pics Infinite Marquee Showcase --- */
 .carousel-wrapper {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 30px 20px;
-    text-align: center;
-}
-
-.showcase-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 30px auto;
     width: 100%;
-    max-width: 320px;
-}
-
-.showcase-frame {
-    width: 280px;
-    height: 350px;
-    background: var(--white);
-    padding: 15px 15px 45px 15px;
-    box-shadow: 0 15px 35px rgba(255, 77, 109, 0.2);
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    border-radius: 4px;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 20px 10px;
+    text-align: center;
     box-sizing: border-box;
-    overflow: hidden;
-    position: relative;
 }
 
-/* Simulated retro Polaroid line underneath picture */
-.showcase-frame::after {
-    content: "🌸 Cute Khushi 🌸";
+.marquee-showcase-container {
+    overflow: hidden;
+    width: 100%;
+    margin: 30px auto;
+    position: relative;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(255, 77, 109, 0.15);
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid var(--accent);
+    padding: 20px 0;
+    box-sizing: border-box;
+}
+
+.marquee-track {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    animation: scrollMarquee 32s linear infinite;
+}
+
+/* Pause scroll animation on hover or when class 'paused' is active */
+.marquee-track:hover,
+.marquee-track.paused {
+    animation-play-state: paused;
+}
+
+.marquee-item {
+    width: 170px;
+    height: 230px;
+    flex-shrink: 0;
+    background: var(--white);
+    padding: 10px 10px 32px 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    border-radius: 4px;
+    border: 1px solid rgba(0,0,0,0.03);
+    box-sizing: border-box;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.marquee-item:hover {
+    transform: scale(1.05);
+}
+
+.marquee-item img {
+    width: 100%;
+    height: 178px;
+    object-fit: cover;
+    border-radius: 2px;
+    background: #fafafa;
+}
+
+.marquee-item::after {
+    content: "🌸 bacha 🌸";
     position: absolute;
-    bottom: 12px;
+    bottom: 6px;
     left: 0;
     width: 100%;
     text-align: center;
     font-family: var(--font-handwritten);
-    font-size: 1.6rem;
+    font-size: 1.3rem;
     font-weight: 700;
     color: var(--primary);
 }
 
-.showcase-img {
-    width: 100%;
-    height: 290px;
-    object-fit: cover;
-    border-radius: 2px;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    opacity: 1;
-    transform: scale(1);
-    background-color: #fcfcfc;
-}
-
-.carousel-control {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: var(--white);
-    border: 1px solid var(--accent);
-    color: var(--primary);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    font-size: 1.2rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: all 0.2s ease;
-    z-index: 10;
-}
-
-.carousel-control:hover {
-    background: var(--primary);
-    color: var(--white);
-    transform: translateY(-50%) scale(1.1);
-}
-
-.carousel-control.prev {
-    left: -20px;
-}
-
-.carousel-control.next {
-    right: -20px;
+@keyframes scrollMarquee {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-50%, 0, 0);
+    }
 }
 
 #nav-to-gallery-from-carousel {
     margin-top: 20px;
+}
+
+/* ==========================================================================
+   📱 SYSTEM-WIDE MOBILE DESIGN SWEEP (CASCADING OVERRIDES)
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* General body & spacing adjustments for phone screen bounds */
+    body {
+        font-size: 15px;
+    }
+    
+    .glass-card {
+        padding: 22px 16px !important;
+        margin: 12px auto !important;
+        border-radius: 16px !important;
+    }
+    
+    .section-title {
+        font-size: 1.8rem !important;
+        margin-bottom: 8px !important;
+    }
+    
+    .section-desc {
+        font-size: 0.9rem !important;
+        margin-bottom: 20px !important;
+    }
+    
+    .btn {
+        padding: 12px 24px !important;
+        font-size: 0.95rem !important;
+        border-radius: 25px !important;
+    }
+
+    /* 1. Hero Welcome Slide */
+    .hero-title {
+        font-size: 2.1rem !important;
+    }
+    .romantic-tagline {
+        font-size: 1.6rem !important;
+    }
+    .hero-subtitle {
+        font-size: 0.95rem !important;
+    }
+
+    /* 2. Opening Envelope Slide */
+    .envelope-wrapper {
+        height: 270px !important;
+    }
+    .envelope {
+        width: 240px !important;
+        height: 165px !important;
+    }
+    .envelope-flap {
+        border-left-width: 120px !important;
+        border-right-width: 120px !important;
+        border-top-width: 85px !important;
+    }
+    .letter {
+        width: 220px !important;
+        height: 145px !important;
+        padding: 12px !important;
+    }
+    .letter-text {
+        font-size: 0.9rem !important;
+        line-height: 1.4 !important;
+    }
+
+    /* 3. Official Love Contract Slide */
+    .contract-container {
+        padding: 18px 12px !important;
+    }
+    .contract-title {
+        font-size: 1.4rem !important;
+    }
+    .contract-clause {
+        font-size: 0.82rem !important;
+        margin-bottom: 10px !important;
+        padding-left: 5px !important;
+    }
+    .signature-block {
+        flex-direction: column !important;
+        gap: 12px !important;
+    }
+    .approved-stamp {
+        width: 100px !important;
+        height: 100px !important;
+        font-size: 0.9rem !important;
+        line-height: 100px !important;
+        top: 25px !important;
+        right: 15px !important;
+    }
+
+    /* 4. Compliments Slot Slide */
+    .slot-display {
+        width: 100% !important;
+        max-width: 250px !important;
+        padding: 12px !important;
+    }
+    .compliment-text {
+        font-size: 0.95rem !important;
+    }
+    .slot-gif {
+        width: 75px !important;
+        height: 75px !important;
+    }
+
+    /* 5. Flower Bouquet Workspace Slide */
+    .vase-area {
+        height: 190px !important;
+    }
+    .flowers-grid {
+        gap: 8px !important;
+    }
+    .flower-btn {
+        padding: 6px 10px !important;
+        font-size: 0.8rem !important;
+    }
+
+    /* 6. Trivia Guessing Slide */
+    .btn-option {
+        padding: 10px 14px !important;
+        font-size: 0.88rem !important;
+    }
+    .quiz-feedback p {
+        font-size: 1.6rem !important;
+    }
+
+    /* 7. Why You Are Special Reasons Slide */
+    .reasons-grid {
+        grid-template-columns: 1fr !important; /* Stack 1-column vertically */
+        gap: 12px !important;
+    }
+    .reason-card {
+        height: 90px !important;
+    }
+    .reason-front p, .reason-back p {
+        font-size: 0.85rem !important;
+    }
+
+    /* 8. The Proposal Yes/No Slide */
+    .proposal-container {
+        padding: 18px 12px !important;
+    }
+    .proposal-title {
+        font-size: 1.5rem !important;
+    }
+    .proposal-gif-img {
+        max-height: 140px !important;
+    }
+    .proposal-btns {
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
+
+    /* 9. Phone Call simulation Slide */
+    .call-screen-container {
+        width: 100% !important;
+        max-width: 280px !important;
+        height: 460px !important;
+        padding: 20px 12px !important;
+    }
+    .profile-img {
+        width: 85px !important;
+        height: 85px !important;
+    }
+    .caller-name {
+        font-size: 1.4rem !important;
+    }
+    .dial-actions-grid {
+        gap: 12px !important;
+    }
+    .dial-btn {
+        width: 46px !important;
+        height: 46px !important;
+        font-size: 1rem !important;
+    }
+
+    /* 10. Heart Catcher Mini Game Slide */
+    #game-box {
+        height: 320px !important;
+    }
+    #basket {
+        width: 50px !important;
+        height: 40px !important;
+    }
+    .game-title {
+        font-size: 1.3rem !important;
+    }
+
+    /* 10.5. Infinite Marquee Showcase Slide */
+    .marquee-showcase-container {
+        max-width: 100% !important;
+    }
+    .marquee-item {
+        width: 120px !important;
+        height: 170px !important;
+        padding: 6px 6px 18px 6px !important;
+    }
+    .marquee-item img {
+        height: 124px !important;
+    }
+    .marquee-item::after {
+        font-size: 0.9rem !important;
+        bottom: 2px !important;
+    }
+
+    /* 11. Memories Album Slide */
+    .gallery-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+    .polaroid-frame {
+        width: 250px !important;
+        height: 310px !important;
+    }
+    .polaroid-img-wrapper {
+        width: 100% !important;
+        height: 200px !important;
+    }
+    .polaroid-caption {
+        font-size: 1.6rem !important;
+    }
+    .polaroid-back-content h3 {
+        font-size: 1.05rem !important;
+    }
+    .polaroid-back-content p {
+        font-size: 0.72rem !important;
+        line-height: 1.4 !important;
+    }
+    .polaroid-back-gif {
+        width: 55px !important;
+        height: 55px !important;
+    }
 }
 
 

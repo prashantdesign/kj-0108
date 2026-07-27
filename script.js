@@ -1078,7 +1078,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // -----------------------------------------
-    // 14.5. Cute Pics Carousel Slideshow Logic
+    // 14.5. Cute Pics Infinite Marquee Showcase Logic
     // -----------------------------------------
     const carouselImages = [
         "image/457128556_1195970734954852_2799928085898927945_n_1195970731621519.jpg",
@@ -1102,58 +1102,31 @@ document.addEventListener("DOMContentLoaded", () => {
         "image/fc6b06cd-362f-445d-a344-acc563bf630f.jpg"
     ];
 
-    const carouselImg = document.getElementById("carousel-img");
-    const btnCarouselPrev = document.getElementById("btn-carousel-prev");
-    const btnCarouselNext = document.getElementById("btn-carousel-next");
-    
-    let carouselIdx = 0;
-    let carouselInterval = null;
-
-    function startCarousel() {
-        if (!carouselImg) return;
-        stopCarousel();
-        carouselInterval = setInterval(() => {
-            navigateCarousel(1);
-        }, 2800);
-    }
-
-    function stopCarousel() {
-        if (carouselInterval) {
-            clearInterval(carouselInterval);
-            carouselInterval = null;
-        }
-    }
-
-    function navigateCarousel(direction) {
-        if (!carouselImg) return;
+    const marqueeTrack = document.getElementById("marquee-track");
+    if (marqueeTrack) {
+        marqueeTrack.innerHTML = "";
         
-        carouselImg.style.opacity = "0";
-        carouselImg.style.transform = "scale(0.95)";
+        // Duplicate list to achieve continuous seamless loop scrolling
+        const doubleImages = [...carouselImages, ...carouselImages];
         
-        setTimeout(() => {
-            carouselIdx = (carouselIdx + direction + carouselImages.length) % carouselImages.length;
-            carouselImg.src = carouselImages[carouselIdx];
+        doubleImages.forEach(src => {
+            const item = document.createElement("div");
+            item.className = "marquee-item";
+            item.innerHTML = `<img src="${src}" alt="Khushi Cute" loading="lazy">`;
             
-            carouselImg.style.opacity = "1";
-            carouselImg.style.transform = "scale(1)";
-        }, 300);
-    }
-
-    if (btnCarouselPrev) {
-        btnCarouselPrev.addEventListener("click", () => {
-            playSound("click");
-            stopCarousel();
-            navigateCarousel(-1);
-            startCarousel();
+            // Tap/click to pause scrolling marquee
+            item.addEventListener("click", (e) => {
+                e.stopPropagation();
+                playSound("click");
+                marqueeTrack.classList.toggle("paused");
+            });
+            
+            marqueeTrack.appendChild(item);
         });
-    }
 
-    if (btnCarouselNext) {
-        btnCarouselNext.addEventListener("click", () => {
-            playSound("click");
-            stopCarousel();
-            navigateCarousel(1);
-            startCarousel();
+        // Resume scrolling if clicked outside
+        document.addEventListener("click", () => {
+            marqueeTrack.classList.remove("paused");
         });
     }
 
@@ -1175,13 +1148,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Jump to top instantly so next screen views cleanly
                 window.scrollTo({ top: 0, behavior: "instant" });
 
-                // Start/Stop carousel timer
-                if (nextSlideId === "carousel-section") {
-                    startCarousel();
-                } else {
-                    stopCarousel();
-                }
-
                 // Re-initialize scratch cards once their section goes active/visible
                 if (nextSlideId === "scratch-section" && window.initAllScratchCardsGlobal) {
                     window.initAllScratchCardsGlobal();
@@ -1202,13 +1168,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 currentSlide.classList.remove("active-slide");
                 prevSlide.classList.add("active-slide");
                 window.scrollTo({ top: 0, behavior: "instant" });
-
-                // Start/Stop carousel timer
-                if (prevSlideId === "carousel-section") {
-                    startCarousel();
-                } else {
-                    stopCarousel();
-                }
             }
         });
     });
