@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Girlfriend Day, Khushi! ❤️</title>
+    <!-- Google Fonts: Rozha One for romantic Hinglish/Hindi titles, Poppins for clean layout, Great Vibes for decorative English cursive -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Kurale&family=Poppins:wght@300;400;600;700&family=Rozha+One&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Canvas Confetti CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Ambient background floating hearts container -->
+    <div id="heart-particles"></div>
+
+    <!-- Custom Music Player Widget -->
+    <div class="music-player" id="music-player">
+        <button class="music-toggle-btn" id="music-btn" aria-label="Toggle Music">
+            <i class="fas fa-music"></i>
+            <span class="music-text">Music Play Karein 🎵</span>
+        </button>
+        <!-- Background Music - Soft romantic melody -->
+        <audio id="bg-music" loop>
+            <source src="assets/music.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="progress-bar-container">
+        <div class="progress-bar" id="myBar"></div>
+    </div>
+
+    <!-- Section 1: Hero Landing Section (Slide 1) -->
+    <section class="hero-section screen-slide active-slide" id="hero">
+        <div class="hero-content">
+            <!-- Bubu Dudu Greeting GIF -->
+            <div class="gif-container hero-gif">
+                <img src="https://raw.githubusercontent.com/Anshuwagh110/1_10-love/main/cute-adorable.gif" alt="Bubu Dudu Welcome" class="bubu-dudu-gif">
+            </div>
+            <span class="romantic-tagline">Happy Girlfriend Day</span>
+            <h1 class="hero-title">Happy Girlfriend Day, <span class="highlight-name">Khushi</span>!</h1>
+            <p class="hero-subtitle">Tum meri life ki sabse badi khushi ho aur mera sukoon bhi. Yeh chhota sa corner sirf humare pyaare rishte ke naam...</p>
+            
+            <!-- Countdown Timer Container -->
+            <div class="countdown-container glass-card">
+                <h3>Girlfriend Day Countdown 🌹</h3>
+                <div id="countdown-timer">
+                    <div class="time-block"><span id="days">00</span><label>Days</label></div>
+                    <div class="time-block"><span id="hours">00</span><label>Hours</label></div>
+                    <div class="time-block"><span id="minutes">00</span><label>Minutes</label></div>
+                    <div class="time-block"><span id="seconds">00</span><label>Seconds</label></div>
+                </div>
+            </div>
+
+            <div class="hero-btn-container">
+                <a href="#envelope-section" class="scroll-btn pulse-anim">
+                    Secret Gift Kholo <i class="fas fa-heart"></i>
+                </a>
+            </div>
+        </div>
+        <div class="hero-waves">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#ffffff" fill-opacity="1" d="M0,224L48,229.3C96,235,192,245,288,234.7C384,224,480,192,576,197.3C672,203,768,245,864,250.7C960,256,1056,224,1152,202.7C1248,181,1344,171,1392,165.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Floating Love Ticker Divider -->
+    <div class="love-ticker-wrapper">
+        <div class="love-ticker">
+            <span>* P.S. Tumhare cheeks pink ho rahe hain is waqt? 😉 *</span>
+            <span>* Disclaimer: I might kiss you after you read all this! 😘 *</span>
+            <span>* Alert: You are looking extremely beautiful today (jaise har din)! *</span>
+            <span>* Bubu and Dudu are cute, but humara connection sabse pyaara hai! 🐼❤️ *</span>
+            <span>* Fun Fact: 100% of my heart belongs to Khushi! 🥰 *</span>
+        </div>
+    </div>
+
+    <!-- Section 2: Interactive Love Letter (Envelope) (Slide 2) -->
+    <section class="envelope-section screen-slide" id="envelope-section">
+        <h2 class="section-title text-center">Dil Se Tumhare Liye... ❤️</h2>
+        <p class="section-desc text-center">Is envelope ko touch karke mera secret message padho</p>
+        
+        <!-- Bubu Dudu Cute Envelope GIF -->
+        <div class="gif-container envelope-gif text-center">
+            <img src="https://raw.githubusercontent.com/Anshuwagh110/1_10-love/main/bubu-bubu-dudu.gif" alt="Bubu Dudu Love Letter" class="bubu-dudu-gif">
+        </div>
+
+        <div class="envelope-wrapper">
+            <div class="envelope" id="love-envelope">
+                <div class="envelope-flap"></div>
+                <div class="envelope-body"></div>
+                <div class="letter" id="love-letter">
+                    <div class="letter-content">
+                        <h3>Dear Khushi, ❤️</h3>
+                        <p>Maine kabhi nahi socha tha ki koi mere itne paas aa jayega ki uski smile hi meri khushi ban jayegi. Jab se tum meri life mein aayi ho, har din lagta hai jaise sab kuch settle ho gaya hai. Tumhare sath baat karna, tumhari choti-choti baaton par hasna, aur tumhara woh gussa hona—mujhe har cheez se beintehaan pyaar hai.</p>
+                        
+                        <!-- GIF inside the letter for extra cuteness -->
+                        <div class="letter-gif-container" style="text-align: center; margin: 10px 0;">
+                            <img src="https://raw.githubusercontent.com/Anshuwagh110/1_10-love/main/cute-adorable.gif" alt="Bubu Dudu Hug" style="width: 100px; border-radius: 8px;">
+                        </div>
+
+                        <p>Wese toh main tumse hamesha bolta rehta hoon, par aaj sach mein batana chahta hoon: Tum mere liye sabse special ho. Main hamesha tumhara sath nibhana chahta hoon, tumhare har mood ko handle karna chahta hoon, aur tumhe duniya ki saari khushi dena chahta hoon.</p>
+                        <p>Happy Girlfriend Day, meri jaan. Tum hamesha aise hi smile karti rehna, kyunki tumhari smile ke bina Prashant ki life bilkul adhuri hai.</p>
+                        <div class="letter-signature">
+                            <p>Hamesha tumhara,</p>
+                            <p class="signature-name">Prashant</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Locked Nav Button: Slide 2 -> 3 -->
+        <div class="slide-navigation hidden" id="nav-to-contract">
+            <button class="btn btn-no prev-slide-btn" data-prev="hero">⬅️ Peeche Chalein</button>
+            <button class="btn btn-calc next-slide-btn" data-next="contract-section">Next: Sign Our Love Contract ➡️</button>
+        </div>
+    </section>
+
+    <!-- Section 3: Humara Love Contract (Slide 3) -->
+    <section class="contract-section screen-slide" id="contract-section">
+        <div class="contract-container glass-card">
+            <div class="contract-ribbon"><i class="fas fa-scroll"></i></div>
+            <h2 class="contract-title">Official Love Contract 📜</h2>
+            <p class="contract-subtitle">Agreement between Prashant & Khushi</p>
+            
+            <div class="contract-terms">
+                <div class="term-item">
+                    <input type="checkbox" id="term1" class="term-checkbox">
+                    <label for="term1">Khushi hamesha aur har baat par 100% sahi rahegi. (No arguments allowed!)</label>
+                </div>
+                <div class="term-item">
+                    <input type="checkbox" id="term2" class="term-checkbox">
+                    <label for="term2">Agar kabhi Prashant sahi ho, toh Clause 1 automatic aur turant apply ho jayega.</label>
+                </div>
+                <div class="term-item">
+                    <input type="checkbox" id="term3" class="term-checkbox">
+                    <label for="term3">Prashant hamesha Khushi ki saari baatein bina chidhe sunega aur use har din batayega ki woh kitni pyaari hai. ❤️</label>
+                </div>
+                <div class="term-item">
+                    <input type="checkbox" id="term4" class="term-checkbox">
+                    <label for="term4">Naraz hokar sona strictly mana hai. Kisi bhi fight ka end ek lambi aur tight hug se hoga. 🧸</label>
+                </div>
+            </div>
+
+            <!-- Interactive Signature Line -->
+            <div class="signature-block">
+                <div class="sig-line">
+                    <span id="khushi-signature" class="sig-calligraphy"></span>
+                    <label>Khushi's Signature (Check terms to sign)</label>
+                </div>
+                <div class="sig-line">
+                    <span class="sig-calligraphy active-sig">Prashant</span>
+                    <label>Prashant's Signature</label>
+                </div>
+            </div>
+
+            <div class="contract-btn-box">
+                <button class="btn btn-calc" id="btn-sign-contract" disabled>Sign & Approve Contract ✍️</button>
+            </div>
+            
+            <!-- Red Stamp Overlay -->
+            <div class="approved-stamp hidden" id="approved-stamp">APPROVED ❤️</div>
+        </div>
+
+        <!-- Locked Nav Button: Slide 3 -> 4 -->
+        <div class="slide-navigation hidden" id="nav-to-slot">
+            <button class="btn btn-no prev-slide-btn" data-prev="envelope-section">⬅️ Peeche Chalein</button>
+            <button class="btn btn-calc next-slide-btn" data-next="slot-section">Next: Try the Slot Machine ➡️</button>
+        </div>
+    </section>
+
+    <!-- Section 4: Compliment Slot Machine (Slide 4) -->
+    <section class="slot-section screen-slide" id="slot-section">
+        <div class="slot-container glass-card">
+            <h2 class="section-title text-center">Pyaar Ka Slot Machine 🎰</h2>
+            <p class="section-desc text-center">Lever khichein aur mere dil ke sweet messages padhein</p>
+            
+            <div class="slot-machine-box">
+                <!-- Slot Display containing GIF and custom Hinglish copy -->
+                <div class="slot-display" id="slot-display">
+                    <div class="slot-gif-box">
+                        <img id="slot-gif" src="https://raw.githubusercontent.com/Anshuwagh110/1_10-love/main/bubu-bubu-dudu.gif" alt="Bubu Dudu">
+                    </div>
+                    <div class="slot-quote" id="slot-quote">"Press roll button below to see how I feel about you..."</div>
+                </div>
+
+                <button class="btn btn-calc" id="btn-roll-slot">Roll Slot 🎰</button>
+            </div>
+        </div>
+
+        <!-- Locked Nav Button: Slide 4 -> 5 -->
+        <div class="slide-navigation hidden" id="nav-to-bouquet">
+            <button class="btn btn-no prev-slide-btn" data-prev="contract-section">⬅️ Peeche Chalein</button>
+            <button class="btn btn-calc next-slide-btn" data-next="bouquet-section">Next: Build a Flower Bouquet ➡️</button>
+        </div>
+    </section>
+
+    <!-- Section 5: Flower Bouquet Builder (Slide 5) -->
+    <section class="bouquet-section screen-slide" id="bouquet-section">
+        <div class="bouquet-container glass-card">
+            <h2 class="section-title text-center">Virtual Bouquet Builder 💐</h2>
+            <p class="section-desc text-center">Apne manpasand phool select karein aur mere liye bouquet banayein!</p>
+            
+            <div class="bouquet-builder-workspace">
+                <!-- Basket/Vase Canvas Visualizer -->
+                <div class="vase-area">
+                    <div class="vase-visual" id="vase-visual">
+                        <div class="vase-bowl"><i class="fas fa-heart"></i></div>
+                    </div>
+                </div>
+                
+                <!-- Controls and selection options -->
+                <div class="flower-controls">
+                    <button class="btn-flower" data-flower="rose">🌹 Red Rose</button>
+                    <button class="btn-flower" data-flower="tulip">🌷 Pink Tulip</button>
+                    <button class="btn-flower" data-flower="sunflower">🌻 Sunflower</button>
+                    <button class="btn-flower" data-flower="lavender">🪻 Lavender</button>
+                    
+                    <div class="bouquet-actions-row">
+                        <button class="btn btn-calc" id="btn-gift-bouquet" disabled>Prashant Ko Send Karein 💐</button>
+                        <button class="btn btn-no" id="btn-clear-vase">Clear ❌</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gift Success Pop-up -->
+            <div class="bouquet-success-message hidden" id="bouquet-success-msg">
+                <h4>Aww! Thank You, Khushi! 😍</h4>
+                <p>Aapke haath se banaye is virtual bouquet ko main humesha apne dil mein saja kar rakhunga. So sweet of you!</p>
+            </div>
+        </div>
+
+        <!-- Locked Nav Button: Slide 5 -> 6 -->
+        <div class="slide-navigation hidden" id="nav-to-quiz">
+            <button class="btn btn-no prev-slide-btn" data-prev="slot-section">⬅️ Peeche Chalein</button>
+            <button class="btn btn-calc next-slide-btn" data-next="quiz-section">Next: Play the Quiz ➡️</button>
+        </div>
+    </section>
+
+    <!-- Section 6: Couple Trivia Quiz (Slide 6) -->
+    <section class="quiz-section screen-slide" id="quiz-section">
+        <div class="quiz-container glass-card">
+            <h2 class="section-title text-center">Cute Relationship Quiz 🧠</h2>
+            <p class="section-desc text-center">Sahi answers select karein aur sweet reactions unlock karein!</p>
+            
+            <!-- Quiz Slide Wrapper -->
+            <div class="quiz-card" id="quiz-card">
+                <div class="quiz-header">
+                    <span class="quiz-qnum" id="quiz-qnum">Question 1 of 3</span>
+                    <span class="quiz-score">Score: <span id="quiz-score-val">0</span></span>
+                </div>
+
+                <h3 class="quiz-question" id="quiz-question">Prashant ki life ki sabse badi khushi kaun hai?</h3>
+                
+                <div class="quiz-options" id="quiz-options">
+                    <button class="btn-option" data-ans="A">Burger aur Pizza 🍕</button>
+                    <button class="btn-option" data-ans="B">Pure din sona 😴</button>
+                    <button class="btn-option" data-ans="C">Mera bacha Khushi! 🥰</button>
+                </div>
+
+                <div class="quiz-feedback hidden" id="quiz-feedback">
+                    <p id="quiz-feedback-text"></p>
+                    <button class="btn btn-calc" id="btn-next-question">Next Question ➡️</button>
+                </div>
+            </div>
+
+            <!-- Quiz Success Screen -->
+            <div class="quiz-finished-box hidden" id="quiz-finished-box">
+                <h4>Quiz Completed! 🎓✨</h4>
+                <p id="quiz-final-result"></p>
+            </div>
+        </div>
+
+        <!-- Locked Nav Button: Slide 6 -> 7 -->
+        <div class="slide-navigation hidden" id="nav-to-reasons">
+            <button class="btn btn-no prev-slide-btn" data-prev="bouquet-section">⬅️ Peeche Chalein</button>
+            <button class="btn btn-calc next-slide-btn" data-next="reasons-section">Next: Read why you are special ➡️</button>
+        </div>
+    </section>
+
+    <!-- Section 7: Interactive Reasons Cards (Slide 7) -->
+    <section class="reasons-section screen-slide" id="reasons-section">
+        <h2 class="section-title text-center">Tum itni special kyun ho? ✨</h2>
+        <p class="section-desc text-center">Cards ko click karke humare real feelings jaano</p>
+
+        <div class="cards-container">
+            <!-- Card 1 -->
+            <div class="reason-card" data-index="0">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <i class="fas fa-grin-beam icon-large"></i>
+                        <h3>Smile & Nakhre</h3>
+                        <span class="click-reveal">Click Karo 💖</span>
+                    </div>
+                    <div class="card-back">
+                        <p>Tumhari cute smile aur woh pyaare-pyaare nakhre! Honestly, jab tum thoda sa chidh jaati ho aur phir smile karti ho, mera dil wahi saaf clean-bold ho jaata hai. Teri smile hi mera din banati hai.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="reason-card" data-index="1">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <i class="fas fa-hand-holding-heart icon-large"></i>
+                        <h3>Pyaara Support</h3>
+                        <span class="click-reveal">Click Karo 💖</span>
+                    </div>
+                    <div class="card-back">
+                        <p>Chahe kitna bhi stress ho, jab tum bolti ho na 'main hoon na aapke sath', toh lagta hai main duniya ki koi bhi mushkil handle kar sakta hoon. Tumhara support meri life ka sabse bada pillar hai.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="reason-card" data-index="2">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <i class="fas fa-heart icon-large"></i>
+                        <h3>Care & डांट</h3>
+                        <span class="click-reveal">Click Karo 💖</span>
+                    </div>
+                    <div class="card-back">
+                        <p>Tum jis tarah meri care karti ho, aur time par na khane par jo daant lagati ho... sach bolu toh, us gusse mein bhi tumhara itna saara pyaar dikhta hai ki mujhe daant khane se bhi pyaar ho gaya hai!</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="reason-card" data-index="3">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <i class="fas fa-magic icon-large"></i>
+                        <h3>Deep Connection</h3>
+                        <span class="click-reveal">Click Karo 💖</span>
+                    </div>
+                    <div class="card-back">
+                        <p>Humari late-night talks, bina kisi reason ke ghanton baatein karna, aur ek dusre ke sath chup rehkar bhi sab samajh jana. Yeh connection mere liye sabse precious aur real cheez hai.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Locked Nav Button: Slide 7 -> 8 -->
+        <div class="slide-navigation hidden" id="nav-to-proposal">
+            <button class="btn btn-no prev-slide-btn" data-prev="quiz-section">⬅️ Peeche Chalein</button>
+            <button class="btn btn-calc next-slide-btn" data-next="proposal-section">Next: I have a question... ➡️</button>
+        </div>
+    </section>
+
+    <!-- Section 8: Interactive Proposal Game (Slide 8) -->
+    <section class="proposal-section screen-slide" id="proposal-section">
+        <div class="proposal-container glass-card">
+            <!-- Interactive Proposal Bubu Dudu GIF -->
+            <div class="gif-container proposal-gif">
+                <img id="proposal-gif-img" src="https://raw.githubusercontent.com/Anshuwagh110/1_10-love/main/cute-adorable.gif" alt="Bubu Dudu Proposal" class="bubu-dudu-gif">
+            </div>
+            
+            <h2 class="proposal-title">Ek chhota sa sawaal... 💍</h2>
+            <p class="proposal-question">Kya tum hamesha meri bankar rahogi aur mujhe aise hi pyaar karogi?</p>
+            
+            <div class="proposal-buttons" id="proposal-btns-container">
+                <button class="btn btn-yes" id="btn-yes">Haan, bilkul! Hamesha! 💖</button>
+                <button class="btn btn-no" id="btn-no">Naa 😜</button>
+            </div>
+
+            <!-- Secret Happy Message -->
+            <div class="victory-message hidden" id="victory-message">
+                <h3>Mujhe pata tha tumhaara reply! 😍</h3>
+                <p>Aap ab pure tarah se meri life-time partner ban chuki ho. No returns, no exchange! I promise main tumhe hamesha khush rakhunga. Love you so much, Khushi!</p>
+                <span class="love-symbol">Khushi ❤️ Prashant</span>
+            </div>
+        </div>
+
+        <!-- Locked Nav Button: Slide 8 -> 9 -->
+        <div class="slide-navigation hidden" id="nav-to-call">
+            <button class="btn btn-no prev-slide-btn" data-prev="reasons-section">⬅️ Peeche Chalein</button>
+            <button class="btn btn-calc next-slide-btn" data-next="call-section">Next: Answer Prashant's Call! 📞</button>
+        </div>
+    </section>
+
+    <!-- Section 9: Interactive Phone Call Simulation (Slide 9) -->
+    <section class="call-section screen-slide" id="call-section">
+        <div class="call-wrapper">
+            <!-- INCOMING CALL SCREEN -->
+            <div class="incoming-call-screen" id="incoming-call-screen">
+                <div class="caller-info">
+                    <h2 class="caller-name">Prashant ❤️</h2>
+                    <span class="caller-status">Incoming Call... 📞</span>
+                </div>
+                
+                <div class="caller-avatar-container">
+                    <div class="caller-avatar">
+                        <img src="https://raw.githubusercontent.com/Anshuwagh110/1_10-love/main/bubu-bubu-dudu.gif" alt="Prashant Avatar">
+                    </div>
+                </div>
+                
+                <div class="slider-container">
+                    <div class="slider-label">Slide to Answer 💖</div>
+                    <div class="slider-track-wrapper">
+                        <div class="slider-bg-text">Answer >>></div>
+                        <input type="range" min="0" max="100" value="0" class="call-slider" id="call-slider">
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACTIVE CALL SCREEN -->
+            <div class="active-call-screen hidden" id="active-call-screen">
+                <div class="caller-info">
+                    <h2 class="caller-name">Prashant ❤️</h2>
+                    <span class="call-timer" id="call-timer">00:00</span>
+                </div>
+
+                <div class="active-call-avatar">
+                    <img id="call-active-gif" src="https://raw.githubusercontent.com/Anshuwagh110/1_10-love/main/bubu-dancing-dance.gif" alt="Speaking">
+                </div>
+
+                <!-- Live Subtitles/Emotional Message -->
+                <div class="call-caption-box">
+                    <p class="call-caption" id="call-caption">Connecting...</p>
+                </div>
+
+                <!-- Call Control Buttons iOS Mockup -->
+                <div class="call-controls-grid">
+                    <div class="control-btn-item">
+                        <button class="circle-btn disabled"><i class="fas fa-microphone-slash"></i></button>
+                        <span>Mute</span>
+                    </div>
+                    <div class="control-btn-item">
+                        <button class="circle-btn disabled"><i class="fas fa-th"></i></button>
+                        <span>Keypad</span>
+                    </div>
+                    <div class="control-btn-item">
+                        <button class="circle-btn active"><i class="fas fa-volume-up"></i></button>
+                        <span>Speaker</span>
+                    </div>
+                    <div class="control-btn-item">
+                        <button class="circle-btn disabled"><i class="fas fa-plus"></i></button>
+                        <span>Add Call</span>
+                    </div>
+                    <div class="control-btn-item">
+                        <button class="circle-btn disabled"><i class="fas fa-video"></i></button>
+                        <span>FaceTime</span>
+                    </div>
+                    <div class="control-btn-item">
+                        <button class="circle-btn disabled"><i class="fas fa-address-book"></i></button>
+                        <span>Contacts</span>
+                    </div>
+                </div>
+
+                <div class="hangup-container">
+                    <button class="hangup-btn" id="btn-hangup" aria-label="End Call">
+                        <i class="fas fa-phone-slash"></i> Hang Up
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Locked Nav Button: Slide 9 -> 10 -->
+        <div class="slide-navigation hidden" id="nav-to-game">
+            <button class="btn btn-no prev-slide-btn" data-prev="proposal-section">⬅️ Peeche Chalein</button>
+            <button class="btn btn-calc next-slide-btn" data-next="game-section">Next: Let's play a game! ➡️</button>
+        </div>
+    </section>
+
+    <!-- Section 10: Heart Catcher Interactive Mini Game (Slide 10) -->
+    <section class="game-section screen-slide" id="game-section">
+        <div class="game-wrapper glass-card">
+            <h2 class="section-title text-center">Heart Catcher Game 🎮</h2>
+            <p class="section-desc text-center">Khushi, cup ko touch/drag karke falling hearts collect karein! (15 seconds)</p>
+
+            <div class="game-status-row">
+                <div class="game-score">Hearts Collected: <span id="game-score-val">0</span></div>
+                <div class="game-timer">Time Left: <span id="game-timer-val">15</span>s</div>
+            </div>
+
+            <!-- Game Box -->
+            <div class="game-box" id="game-box">
+                <!-- Basket Bowl (controlled by mouse/touch) -->
+                <div class="game-basket" id="game-basket">
+                    <i class="fas fa-gift"></i>
+                    <span class="basket-text">Khushi's Cup 🏆</span>
+                </div>
+
+                <div class="game-overlay" id="game-overlay">
+                    <button class="btn btn-yes" id="btn-start-game">Game Start Karein 🚀</button>
+                </div>
+            </div>
+
+            <!-- Game Finished Message Box -->
+            <div class="game-result-box hidden" id="game-result-box">
+                <h4>Game Finished! 🎉</h4>
+                <p id="game-result-text">Aapne bohot acche se khela! Lekin Prashant ne aapke liye laakhon feelings capture kar rakhi hain...</p>
+                <button class="btn btn-calc" id="btn-restart-game">Dobara Khelein ✨</button>
+            </div>
+        </div>
+
+        <!-- Locked Nav Button: Slide 10 -> 11 -->
+        <div class="slide-navigation hidden" id="nav-to-gallery">
+            <button class="btn btn-no prev-slide-btn" data-prev="call-section">⬅️ Peeche Chalein</button>
+            <button class="btn btn-calc next-slide-btn" data-next="gallery-section">Next: See our polaroids ➡️</button>
+        </div>
+    </section>
+
+    <!-- Section 11: Photo Gallery (Polaroid Frames) (Slide 11) -->
+    <section class="gallery-section screen-slide" id="gallery-section">
+        <h2 class="section-title text-center">Humari Pyaari Memories 📸</h2>
+        <p class="section-desc text-center">Humare life ke kuch sabse pyaare aur real moments (Click to flip! 🔄)</p>
+
+        <div class="gallery-grid">
+            <!-- Polaroid 1 -->
+            <div class="polaroid-frame" data-id="1">
+                <div class="polaroid-inner">
+                    <div class="polaroid-front">
+                        <div class="polaroid-img-wrapper">
+                            <img src="assets/memory1.png" alt="Pehli Mulaqat" class="gallery-img">
+                        </div>
+                        <div class="polaroid-caption">Pehli Mulaqat ✨</div>
+                    </div>
+                    <div class="polaroid-back">
+                        <div class="polaroid-back-content">
+                            <h3>Pehli Mulaqat ✨</h3>
+                            <p>Yahi toh woh haseen din tha jab hum pehli baar mile the! Tum thodi shy thi aur main thoda nervous, par tumhari smile ne mera dil pehli nazar mein hi chura liya tha... ❤️</p>
+                            <img src="https://raw.githubusercontent.com/Anshuwagh110/1_10-love/main/cute-adorable.gif" alt="Bubu Dudu Shy" class="polaroid-back-gif">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Polaroid 2 -->
+            <div class="polaroid-frame" data-id="2">
+                <div class="polaroid-inner">
+                    <div class="polaroid-front">
+                        <div class="polaroid-img-wrapper">
+                            <img src="assets/memory2.png" alt="Humari Smile" class="gallery-img">
+                        </div>
+                        <div class="polaroid-caption">Humari Smile 💖</div>
+                    </div>
+                    <div class="polaroid-back">
+                        <div class="polaroid-back-content">
+                            <h3>Humari Smile 💖</h3>
+                            <p>Yeh photo meri favorite hai! Jab hum dono sath haste hain, toh sabse khush hote hain. Tumhari smile hi toh meri life ki energy hai. Hamesha aise hi muskurana! 🥰</p>
+                            <img src="https://raw.githubusercontent.com/Anshuwagh110/1_10-love/main/bubu-dancing-dance.gif" alt="Bubu Dudu Laugh" class="polaroid-back-gif">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Polaroid 3 -->
+            <div class="polaroid-frame" data-id="3">
+                <div class="polaroid-inner">
+                    <div class="polaroid-front">
+                        <div class="polaroid-img-wrapper">
+                            <img src="assets/memory3.png" alt="Hamesha Ke Liye" class="gallery-img">
+                        </div>
+                        <div class="polaroid-caption">Hamesha Ke Liye Saath 🔗</div>
+                    </div>
+                    <div class="polaroid-back">
+                        <div class="polaroid-back-content">
+                            <h3>Hamesha Ke Liye Saath 🔗</h3>
+                            <p>Chahe kitne bhi ups and downs aayein, humara sath hamesha aise hi rahega. Prashant aur Khushi hamesha sath mein. No matter what, bacha! 🔗❤️</p>
+                            <img src="https://raw.githubusercontent.com/Anshuwagh110/1_10-love/main/bubu-bubu-dudu.gif" alt="Bubu Dudu Love" class="polaroid-back-gif">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Locked Nav Button: Slide 11 -> 12 -->
+        <div class="slide-navigation hidden" id="nav-to-scratch">
+            <button class="btn btn-no prev-slide-btn" data-prev="game-section">⬅️ Peeche Chalein</button>
+            <button class="btn btn-calc next-slide-btn" data-next="scratch-section">Next: Scratch your surprises ➡️</button>
+        </div>
+    </section>
+
+    <!-- Section 12: Surprise Scratch Card Coupons (Slide 12) -->
+    <section class="scratch-section screen-slide" id="scratch-section">
+        <div class="scratch-wrapper glass-card">
+            <h2 class="section-title text-center">Surprise Coupons 🎟️</h2>
+            <p class="section-desc text-center">Apni finger/mouse se teenon cards ko alag-alag scratch karein! ✍️</p>
+
+            <div class="scratch-cards-grid">
+                <!-- Card 1 -->
+                <div class="scratch-card-box" data-id="1">
+                    <div class="scratch-content-bg">
+                        <span class="coupon-icon">🕯️</span>
+                        <h5>Candlelight Dinner</h5>
+                        <p>1 Romantic candlelight dinner date at Khushi's favorite spot.</p>
+                    </div>
+                    <canvas id="scratch-canvas-1" class="scratch-canvas" data-canvas-id="1"></canvas>
+                </div>
+                <!-- Card 2 -->
+                <div class="scratch-card-box" data-id="2">
+                    <div class="scratch-content-bg">
+                        <span class="coupon-icon">🧸</span>
+                        <h5>Unlimited Hugs</h5>
+                        <p>Valid lifetime. No conditions apply.</p>
+                    </div>
+                    <canvas id="scratch-canvas-2" class="scratch-canvas" data-canvas-id="2"></canvas>
+                </div>
+                <!-- Card 3 -->
+                <div class="scratch-card-box" data-id="3">
+                    <div class="scratch-content-bg">
+                        <span class="coupon-icon">✨</span>
+                        <h5>Gussa Handle Pass</h5>
+                        <p>Khushi bina kisi reason ke 1 din gussa reh sakti hai!</p>
+                    </div>
+                    <canvas id="scratch-canvas-3" class="scratch-canvas" data-canvas-id="3"></canvas>
+                </div>
+            </div>
+            
+            <button class="btn btn-calc" id="btn-reset-scratch" style="margin: 30px auto 0 auto; display: block;">Sabhi Lock Karein 🔒</button>
+        </div>
+
+        <!-- Locked Nav Button: Slide 12 -> 13 -->
+        <div class="slide-navigation hidden" id="nav-to-calc">
+            <button class="btn btn-no prev-slide-btn" data-prev="gallery-section">⬅️ Peeche Chalein</button>
+            <button class="btn btn-calc next-slide-btn" data-next="calculator-section">Next: Check our Love Meter ➡️</button>
+        </div>
+    </section>
+
+    <!-- Section 13: Interactive Love Calculator (Slide 13) -->
+    <section class="calculator-section screen-slide" id="calculator-section">
+        <div class="calculator-container glass-card">
+            <!-- Love Meter Bubu Dudu GIF -->
+            <div class="gif-container calc-gif">
+                <img id="calc-gif-img" src="https://raw.githubusercontent.com/Anshuwagh110/1_10-love/main/bubu-bubu-dudu.gif" alt="Bubu Dudu Love Meter" class="bubu-dudu-gif">
+            </div>
+
+            <h2 class="section-title text-center">Humara Love Meter ❤️</h2>
+            <p class="section-desc text-center">Let's check humari chemistry aur feelings ka temperature! 🔥</p>
+
+            <div class="love-meter-box">
+                <div class="names-row">
+                    <span class="name-tag">Prashant</span>
+                    <i class="fas fa-heart heartbeat" id="calc-heart-btn"></i>
+                    <span class="name-tag">Khushi</span>
+                </div>
+                
+                <div class="meter-bar-wrapper">
+                    <div class="meter-bar" id="meter-bar"></div>
+                </div>
+
+                <div class="love-percentage" id="love-percentage">0%</div>
+                
+                <button class="btn btn-calc" id="btn-calc">Feelings Measure Karein ✨</button>
+
+                <div class="calc-message hidden" id="calc-message">
+                    <h4>Wait... Meter crash ho gaya! ♾️</h4>
+                    <p>Humare pyaar aur feelings ko simple numbers mein naapna impossible hai. Khushi + Prashant = Pure Love (Infinite & Unconditional)! ❤️</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Locked Nav Button: Slide 13 -> 14 -->
+        <div class="slide-navigation hidden" id="nav-to-notes">
+            <button class="btn btn-no prev-slide-btn" data-prev="scratch-section">⬅️ Peeche Chalein</button>
+            <button class="btn btn-calc next-slide-btn" data-next="notes-section">Next: Write a message ➡️</button>
+        </div>
+    </section>
+
+    <!-- Section 14: Message Board / Sticky Notes (Slide 14) -->
+    <section class="notes-section screen-slide" id="notes-section">
+        <h2 class="section-title text-center">Humara Message Board 📌</h2>
+        <p class="section-desc text-center">Apna pyaar likhein aur board par pin karein</p>
+
+        <div class="notes-container glass-card">
+            <!-- Input Box to add sticky notes -->
+            <div class="note-input-box">
+                <textarea id="note-text" placeholder="Khushi, mere liye ek cute sa note likho... ✍️"></textarea>
+                <button class="btn btn-calc" id="btn-add-note">Note Pin Karein 📌</button>
+            </div>
+
+            <!-- Notes Grid -->
+            <div class="notes-grid" id="notes-grid">
+                <div class="sticky-note note-pink">
+                    <p class="note-content">"Hamesha tumhara nakhra handle karunga 💖"</p>
+                    <span class="note-author">- Prashant</span>
+                </div>
+                <div class="sticky-note note-yellow">
+                    <p class="note-content">"Hamesha tumhein khush rakhne ki guarantee! 💖"</p>
+                    <span class="note-author">- Prashant</span>
+                </div>
+                <div class="sticky-note note-blue">
+                    <p class="note-content">"Always there to hold your hand, chahe situation jo bhi ho. 🤝"</p>
+                    <span class="note-author">- Prashant</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-navigation" style="margin-top: 30px; display: flex; justify-content: center;">
+            <button class="btn btn-no prev-slide-btn" data-prev="calculator-section">⬅️ Peeche Chalein</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="romantic-footer">
+        <p>Made with love by Prashant for Khushi 💖</p>
+        <p class="footer-sub">&copy; 2026. Happy Girlfriend Day!</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
