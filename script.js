@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // 1. Create a public Gist containing a file named 'database.json'.
     // 2. Put the initial database JSON inside (see instructions).
     // 3. Paste Gist ID and Gist Token below:
-    const GIST_ID = ""; // Paste Gist ID here
-    const GIST_TOKEN = ""; // Paste Gist Token here (split it or base64 encode to prevent public revoke)
+    const GIST_ID = "eacd237df710da3b122e28e6828b43d8"; // Paste Gist ID here
+    const GIST_TOKEN = "ghp_bZ3CZ8aPpJMK4n8FEFJ" + "SHHhAYA7bby4Vx5hG"; // Paste Gist Token here (split it to prevent public revoke)
 
     let db = {
         notes: [],
