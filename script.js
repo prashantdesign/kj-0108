@@ -351,8 +351,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // 9. Countdown Timer to Girlfriend Day (August 1, 2026)
     // -----------------------------------------
     function startCountdown() {
-        // Target Date: August 1st, 2026
-        const targetDate = new Date("August 1, 2026 00:00:00").getTime();
+        // Target Date: August 1st, 2026 (Month is 0-indexed: 7 = August)
+        const targetDate = new Date(2026, 7, 1, 0, 0, 0).getTime();
         
         const countdownInterval = setInterval(() => {
             const now = new Date().getTime();
