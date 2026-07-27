@@ -941,9 +941,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const box = canvas.closest(".scratch-card-box");
             if (!box) return;
 
-            // Set size match to parent box
-            canvas.width = box.offsetWidth;
-            canvas.height = box.offsetHeight;
+            // Set size match to parent box (use fallback 280x240 if hidden on load)
+            canvas.width = box.offsetWidth || 280;
+            canvas.height = box.offsetHeight || 240;
 
             ctx.globalCompositeOperation = "source-over";
 
@@ -1062,6 +1062,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 initScratchCard(canvas);
             });
         }
+        window.initAllScratchCardsGlobal = initAllScratchCards;
 
         scratchCanvases.forEach(canvas => {
             setupScratchListeners(canvas);
@@ -1100,6 +1101,11 @@ document.addEventListener("DOMContentLoaded", () => {
                         const navToScratch = document.getElementById("nav-to-scratch");
                         if (navToScratch) navToScratch.classList.remove("hidden");
                     }, 1500);
+                }
+
+                // Re-initialize scratch cards once their section goes active/visible
+                if (nextSlideId === "scratch-section" && window.initAllScratchCardsGlobal) {
+                    window.initAllScratchCardsGlobal();
                 }
             }
         });
