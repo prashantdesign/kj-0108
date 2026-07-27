@@ -922,8 +922,8 @@ document.addEventListener("DOMContentLoaded", () => {
             origin: { y: 0.8 }
         });
 
-        const navToGallery = document.getElementById("nav-to-gallery");
-        if (navToGallery) navToGallery.classList.remove("hidden");
+        const navToCarousel = document.getElementById("nav-to-carousel");
+        if (navToCarousel) navToCarousel.classList.remove("hidden");
     }
 
     if (btnStartGame) btnStartGame.addEventListener("click", startGame);
@@ -1078,6 +1078,86 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // -----------------------------------------
+    // 14.5. Cute Pics Carousel Slideshow Logic
+    // -----------------------------------------
+    const carouselImages = [
+        "image/457128556_1195970734954852_2799928085898927945_n_1195970731621519.jpg",
+        "image/481311967_2437469753282707_1813172007490226648_n_2437469749949374.jpg",
+        "image/IMG_1991.JPG",
+        "image/IMG_2123.JPG",
+        "image/IMG_2298.JPG",
+        "image/IMG_2308.JPG",
+        "image/IMG_2311.JPG",
+        "image/IMG_3064.JPG",
+        "image/IMG_3484.JPG",
+        "image/IMG_4807.JPG",
+        "image/IMG_5392.JPG",
+        "image/Snapchat-12831284.jpg",
+        "image/Snapchat-2058885309.jpg",
+        "image/Snapchat-222406974.jpg",
+        "image/Snapchat-357688198.jpg",
+        "image/Snapchat-657655642.jpg",
+        "image/Snapchat-872738059.jpg",
+        "image/copy_8AA2D4C0-82C8-4E51-B652-EEA191D83684.jpeg",
+        "image/fc6b06cd-362f-445d-a344-acc563bf630f.jpg"
+    ];
+
+    const carouselImg = document.getElementById("carousel-img");
+    const btnCarouselPrev = document.getElementById("btn-carousel-prev");
+    const btnCarouselNext = document.getElementById("btn-carousel-next");
+    
+    let carouselIdx = 0;
+    let carouselInterval = null;
+
+    function startCarousel() {
+        if (!carouselImg) return;
+        stopCarousel();
+        carouselInterval = setInterval(() => {
+            navigateCarousel(1);
+        }, 2800);
+    }
+
+    function stopCarousel() {
+        if (carouselInterval) {
+            clearInterval(carouselInterval);
+            carouselInterval = null;
+        }
+    }
+
+    function navigateCarousel(direction) {
+        if (!carouselImg) return;
+        
+        carouselImg.style.opacity = "0";
+        carouselImg.style.transform = "scale(0.95)";
+        
+        setTimeout(() => {
+            carouselIdx = (carouselIdx + direction + carouselImages.length) % carouselImages.length;
+            carouselImg.src = carouselImages[carouselIdx];
+            
+            carouselImg.style.opacity = "1";
+            carouselImg.style.transform = "scale(1)";
+        }, 300);
+    }
+
+    if (btnCarouselPrev) {
+        btnCarouselPrev.addEventListener("click", () => {
+            playSound("click");
+            stopCarousel();
+            navigateCarousel(-1);
+            startCarousel();
+        });
+    }
+
+    if (btnCarouselNext) {
+        btnCarouselNext.addEventListener("click", () => {
+            playSound("click");
+            stopCarousel();
+            navigateCarousel(1);
+            startCarousel();
+        });
+    }
+
+    // -----------------------------------------
     // 15. Page by Page Slide Transitions & Sound Integration
     // -----------------------------------------
     const nextSlideBtns = document.querySelectorAll(".next-slide-btn");
@@ -1094,6 +1174,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 
                 // Jump to top instantly so next screen views cleanly
                 window.scrollTo({ top: 0, behavior: "instant" });
+
+                // Start/Stop carousel timer
+                if (nextSlideId === "carousel-section") {
+                    startCarousel();
+                } else {
+                    stopCarousel();
+                }
 
                 // Re-initialize scratch cards once their section goes active/visible
                 if (nextSlideId === "scratch-section" && window.initAllScratchCardsGlobal) {
@@ -1115,6 +1202,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 currentSlide.classList.remove("active-slide");
                 prevSlide.classList.add("active-slide");
                 window.scrollTo({ top: 0, behavior: "instant" });
+
+                // Start/Stop carousel timer
+                if (prevSlideId === "carousel-section") {
+                    startCarousel();
+                } else {
+                    stopCarousel();
+                }
             }
         });
     });

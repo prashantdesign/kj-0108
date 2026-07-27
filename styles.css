@@ -2243,6 +2243,100 @@ section {
     filter: drop-shadow(0 4px 8px rgba(0,0,0,0.05));
 }
 
+/* --- Cute Pics Carousel Slide --- */
+.carousel-wrapper {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.showcase-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px auto;
+    width: 100%;
+    max-width: 320px;
+}
+
+.showcase-frame {
+    width: 280px;
+    height: 350px;
+    background: var(--white);
+    padding: 15px 15px 45px 15px;
+    box-shadow: 0 15px 35px rgba(255, 77, 109, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Simulated retro Polaroid line underneath picture */
+.showcase-frame::after {
+    content: "🌸 Cute Khushi 🌸";
+    position: absolute;
+    bottom: 12px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-family: var(--font-handwritten);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.showcase-img {
+    width: 100%;
+    height: 290px;
+    object-fit: cover;
+    border-radius: 2px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 1;
+    transform: scale(1);
+    background-color: #fcfcfc;
+}
+
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--white);
+    border: 1px solid var(--accent);
+    color: var(--primary);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: all 0.2s ease;
+    z-index: 10;
+}
+
+.carousel-control:hover {
+    background: var(--primary);
+    color: var(--white);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-control.prev {
+    left: -20px;
+}
+
+.carousel-control.next {
+    right: -20px;
+}
+
+#nav-to-gallery-from-carousel {
+    margin-top: 20px;
+}
+
 
 
 
